@@ -400,7 +400,10 @@ void draw() {
               soldierSpeed[k]=-soldierX[i] * SOIL_SIZE-SOIL_SIZE;
             }                
                 image(soldier,soldierX[i] * SOIL_SIZE+soldierSpeed[k], (j*4+soldierY[j]+2) * SOIL_SIZE+stroll);
-                if(soldierX[i] * SOIL_SIZE<playerX+groundhogW&& soldierX[i] * SOIL_SIZE+SOIL_SIZE>playerX&& (j*4+soldierY[j]+2) * SOIL_SIZE+stroll<playerY+groundhogW&& (j*4+soldierY[j]+2) * SOIL_SIZE+stroll+SOIL_SIZE>playerY){
+                if(soldierX[i] * SOIL_SIZE+soldierSpeed[k]<playerX+groundhogW&&
+                soldierX[i] * SOIL_SIZE+SOIL_SIZE+soldierSpeed[k]>playerX&&
+                (j*4+soldierY[j]+2) * SOIL_SIZE+stroll<playerY+groundhogW&&
+                (j*4+soldierY[j]+2) * SOIL_SIZE+stroll+SOIL_SIZE>playerY){
                   playerHealthMax-=1;
                   rightState = leftState = downState = false;
                   playerX = PLAYER_INIT_X;
